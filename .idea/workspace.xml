@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67c111e0-eedb-4d36-b4ef-44b5842c2c91" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzc/solution/dao/ResultDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzc/solution/objects/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/lzc/solution/process/ResultVerification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/customer.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/lineitem.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ResultDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/orders.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lzc/solution/process/FlinkStreamProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lzc/solution/process/FlinkStreamProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lzc/solution/process/FlinkStreamProcessing$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lzc/solution/process/FlinkStreamProcessing$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/lzc/solution/process/FlinkStreamProcessing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lzc/solution/process/FlinkStreamProcessing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -49,6 +64,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -58,7 +74,16 @@
     <property name="project.structure.side.proportion" value="0.50634515" />
     <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
   </component>
-  <component name="RunManager" selected="Application.FlinkStreamProcessing">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Maven\Flink-Study\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Maven\Flink-Study\src\main\resources" />
+      <recent name="D:\Maven\Flink-Study\src\main\java\com\lzc\solution\mapper" />
+    </key>
+  </component>
+  <component name="RunManager">
     <configuration name="FlinkJob" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lzc.solution.process.FlinkJob" />
       <module name="Flink-Study" />
@@ -74,6 +99,19 @@
     </configuration>
     <configuration name="FlinkStreamProcessing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lzc.solution.process.FlinkStreamProcessing" />
+      <module name="Flink-Study" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lzc.solution.process.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResultVerification" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lzc.solution.process.ResultVerification" />
       <module name="Flink-Study" />
       <extension name="coverage">
         <pattern>
@@ -113,6 +151,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ResultVerification" />
         <item itemvalue="Application.FlinkStreamProcessing" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.TestService" />
@@ -140,7 +179,8 @@
       <workItem from="1732444264985" duration="16204000" />
       <workItem from="1732524856667" duration="251000" />
       <workItem from="1732525128663" duration="4227000" />
-      <workItem from="1732709514244" duration="639000" />
+      <workItem from="1732709514244" duration="10705000" />
+      <workItem from="1732773216281" duration="4879000" />
     </task>
     <servers />
   </component>
@@ -157,6 +197,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

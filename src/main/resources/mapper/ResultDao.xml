@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lzc.solution.dao.ResultDao">
+
+    <select id="queryOrdersRevenue" resultType="com.lzc.solution.objects.Result">
+        SELECT
+            l.l_orderkey,
+            SUM(l.l_extendedprice * (1 - l.l_discount)) AS revenue,
+            o.o_orderdate,
+            o.o_shippriority
+        FROM
+            customer c
+                JOIN orders o ON c.c_custkey = o.o_custkey
+                JOIN lineitem l ON l.l_orderkey = o.o_orderkey
+        WHERE
+            c.c_mktsegment = 'AUTOMOBILE'
+          AND o.o_orderdate &lt; #{orderDate}
+          AND l.l_shipdate &gt; #{shipDate}
+        GROUP BY
+            l.l_orderkey,
+            o.o_orderdate,
+            o.o_shippriority
+        ORDER BY
+            revenue DESC,
+            o.o_orderdate
+    </select>
+
+    <select id="queryFlinkResult" resultType="com.lzc.solution.objects.Result">
+        SELECT
+            l_orderkey,
+            MAX(revenue) AS revenue,
+            o_orderdate,
+            o_shippriority
+        FROM
+            result_t
+        GROUP BY
+            l_orderkey,
+            o_orderdate,
+            o_shippriority
+        ORDER BY
+            revenue DESC,
+            o_orderdate
+    </select>
+
+</mapper>

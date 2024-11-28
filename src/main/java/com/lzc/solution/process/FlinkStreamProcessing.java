@@ -20,9 +20,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class FlinkStreamProcessing {
-    private static final String customerFilePath = "E:/flink-datasource/test/customer.xlsx";
-    private static final String orderFilePath = "E:/flink-datasource/test/orders.xlsx";
-    private static final String lineItemFilePath = "E:/flink-datasource/test/lineitem.xlsx";
+    private static final String customerFilePath = "src/main/resources/customer.xlsx";
+    private static final String orderFilePath = "src/main/resources/orders.xlsx";
+    private static final String lineItemFilePath = "src/main/resources/lineitem.xlsx";
 
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -69,7 +69,12 @@ public class FlinkStreamProcessing {
                         })
                         .returns(new TypeHint<Tuple4<Integer, BigDecimal, LocalDate, Integer>>() {
                         })
-                        .keyBy((KeySelector<Tuple4<Integer, BigDecimal, LocalDate, Integer>, Tuple3<Integer, LocalDate, Integer>>) value -> new Tuple3<>(value.f0, value.f2, value.f3))
+                        .keyBy(new KeySelector<Tuple4<Integer, BigDecimal, LocalDate, Integer>, Tuple3<Integer, LocalDate, Integer>>() {
+                            @Override
+                            public Tuple3<Integer, LocalDate, Integer> getKey(Tuple4<Integer, BigDecimal, LocalDate, Integer> value) {
+                                return new Tuple3<>(value.f0, value.f2, value.f3);
+                            }
+                        })
                         .reduce((ReduceFunction<Tuple4<Integer, BigDecimal, LocalDate, Integer>>) (value1, value2) -> {
                             BigDecimal totalRevenue = value1.f1.add(value2.f1);
                             return new Tuple4<>(value1.f0, totalRevenue, value1.f2, value1.f3);
