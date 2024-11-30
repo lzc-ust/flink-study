@@ -1,4 +1,5 @@
 If you do not need to execute the validation logic, just print the processing results in the console, and there is no need to deploy and configure the MYSQL-related parts.
+
 Comment out JdbcSinkUtil.writeToMySQL(aggregatedStream); in FlinkStreamProcessing.java, and the program can run directly.
 
 If you need to execute the validation logic, you need to configure the correct data source connection in mybatis-config.xml and JdbcSinkUtil.java.
