@@ -20,9 +20,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class FlinkStreamProcessing {
-    private static final String customerFilePath = "src/main/resources/customer.xlsx";
-    private static final String orderFilePath = "src/main/resources/orders.xlsx";
-    private static final String lineItemFilePath = "src/main/resources/lineitem.xlsx";
+    private static final String customerFilePath = "src/main/resources/excel/customer.xlsx";
+    private static final String orderFilePath = "src/main/resources/excel/orders.xlsx";
+    private static final String lineItemFilePath = "src/main/resources/excel/lineitem.xlsx";
 
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -51,7 +51,7 @@ public class FlinkStreamProcessing {
                 .keyBy(tuple -> tuple.f1.getO_orderkey(), LineItem::getL_orderkey)
                 .process(new CustomerOrderLineItemProcessFunction());
 
-        // 过滤和聚合数据
+        // 过滤数据
         SingleOutputStreamOperator<Tuple3<Customer, Orders, LineItem>> filteredCustomerOrderLineItemStream = customerOrderLineItemStream
                 .filter(tuple -> tuple.f1.getO_orderdate().isBefore(LocalDate.parse("1995-03-13")) &&
                         tuple.f2.getL_shipdate().isAfter(LocalDate.parse("1995-03-13")));

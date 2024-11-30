@@ -25,6 +25,7 @@
         ORDER BY
             revenue DESC,
             o.o_orderdate
+        LIMIT 10
     </select>
 
     <select id="queryFlinkResult" resultType="com.lzc.solution.objects.Result">
@@ -42,6 +43,7 @@
         ORDER BY
             revenue DESC,
             o_orderdate
+        LIMIT 10
     </select>
 
 </mapper>

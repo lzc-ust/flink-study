@@ -37,14 +37,15 @@ public class ResultVerification {
             for (Result result : flinkResult) {
                 String key = getKey(result);
                 flinkSet.add(key);
-                if (!set.contains(key)) {
-                    System.out.println("Flink processing results are wrong:" + key);
-                }
             }
 
-            // List<String> miss = set.stream().filter(key -> set.contains(key) && !flinkSet.contains(key)).collect(Collectors.toList());
-            // System.out.println(miss);
-            System.out.println("Flink processing results are correct!");
+            List<String> miss = set.stream().filter(key -> set.contains(key) && !flinkSet.contains(key)).collect(Collectors.toList());
+
+            if (miss.size() == 0) {
+                System.out.println("Flink processing results are correct!");
+            } else {
+                System.out.println("Flink processing results are miss: " + miss);
+            }
         }
     }
 
